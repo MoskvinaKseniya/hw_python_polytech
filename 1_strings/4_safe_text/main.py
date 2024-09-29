@@ -20,6 +20,16 @@ def get_wrong_article() -> str:
 
 def recover_article() -> str:
     wrong_article = get_wrong_article()
+    # разбиваем текст на предложения
+    sentences = wrong_article.split('.\n')
+    for i in range(len(sentences)):
+        # убираем !
+        sentences[i] = sentences[i].rstrip('!')
+        # разворачиваем текст
+        sentences[i] = sentences[i][::-1]
+        # восстанавливаем cat
+        sentences[i] = sentences[i].replace("WOOF-WOOF", "CAT")
+        # первую букву в верхний регистр, остальные в нижний регистр
+        sentences[i] = sentences[i].capitalize()
 
-    # Ваш код ниже, возвращайте уже отредактированный текст!
-    return wrong_article
+    return '.\n'.join(sentences)
