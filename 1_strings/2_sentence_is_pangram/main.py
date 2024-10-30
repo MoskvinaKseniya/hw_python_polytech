@@ -10,16 +10,9 @@ import string
 
 
 def is_sentence_is_pangram(sentence: str) -> bool:
-    # буквы алфавита
-    alphabet = string.ascii_lowercase
-    # буквы в предложении
-    sentence = sentence.lower()
-    letters = ""
-    for i in sentence:
-        if i not in letters:
-            letters = letters + i
-    letters = ''.join(sorted(letters))
-
-    return alphabet == letters
-
-
+    # множество букв алфавита
+    alphabet = set(string.ascii_lowercase)
+    # множество букв в предложении
+    letters = set(sentence.lower())
+    # проверка является ли alphabet подмножеством letters
+    return alphabet.issubset(letters)

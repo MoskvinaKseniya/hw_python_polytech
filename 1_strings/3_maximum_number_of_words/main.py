@@ -9,7 +9,7 @@ pytest ./3_maximum_number_of_words/test.py
 """
 
 
-def get_max_number_of_words_from_sentences(sentences: list[str]) -> bool:
+def get_max_number_of_words_from_sentences(sentences: list[str]) -> int:
     length = 0
     for i in sentences:
         length_i = len(i.split())
