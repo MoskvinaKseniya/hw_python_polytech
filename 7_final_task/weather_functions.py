@@ -133,7 +133,7 @@ def get_history():
         cursor.execute("""
                 SELECT request_time, city_name, weather_description, temperature, feels_like, wind_speed
                 FROM history
-                ORDER BY id
+                ORDER BY id DESC
                 LIMIT ?
             """, (n,))
         history = cursor.fetchall()
